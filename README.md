@@ -132,4 +132,8 @@ This is a MERN application for user feedback built with stripeJS &amp; Google Oa
 
 			5. Generate your keys and temporarily comment them in your index.js file DO NOT PUSH THEM TO THE REPO
 
-		  6. create a new folder in your project called config. in that folder create a file called keys.js
+		  6. create a new folder in your project called config. in that folder create a file called keys.js. this file will hold our sensitive information. copy your googleClientID and your googleClientSecret into the keys.js file. We name the key for the passport strategy that we are using s
+
+			7. We will import our key and secret key into the google passport strategy in index.js by importing the directory and file and referencing our keys inside the google passport strategy. We will add a fat arrow callback function in our index.js file
+
+			8. We will no create our express "get" route "/auth/google" and pass it passport's authenticate method using the google strategy by referencing 'google'. GoogleStrategy has built in logic that has an internal identifier of 'google' and it says if anyone tries to authenticate with 'google', use GoogleStrategy. Scope specify's to google what access we want from google. These are the permissions we are requesting on this user from Google. This list is predefined 
