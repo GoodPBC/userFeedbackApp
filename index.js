@@ -30,6 +30,7 @@ app.get(
   })
 );
 
+app.get('/auth/google/callback', passport.authenticate('google', {}));
 //In production run on env var port || or run on port 5000
 const PORT = process.env.PORT || 5000;
 //express tells node to listen on a Port
