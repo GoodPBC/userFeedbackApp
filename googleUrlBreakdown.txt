@@ -1,0 +1,21 @@
+This is the response URL that google gives us from our auth request:
+
+"https://accounts.google.com/o/oauth2/v2/auth?"   --> base URL from Google
+"response_type=code&" --> response with the code
+
+"redirect_uri=http%3A%2F%2Flocalhost%3A5000%2Fauth%2Fgoogle%2Fcallback&? --> this is the address that a user should be redirected after granting permissions
+
+"scope=profile%20email&" --> response with the code from google
+
+"client_id=866067747603-sblk5taubimaaufe2dogjna4a1g30tct.apps.googleusercontent.com" --> identifies our application to googles servers
+
+
+
+http://localhost:5000/auth/google/callback
+
+=============================================================================
+"http://localhost:5000/auth/google/callback?code=4/nY5pJxZGeRee6jV_I4ou2V-lk1nU_50Ndd102YU5c2Y#" --> this is the url we get back when we type in localhost:5000/auth/google
+
+along with an error message Cannot "GET /auth/google/callback"
+
+This means google has sent us back to our server but we do not yet have a route to respond to google.
