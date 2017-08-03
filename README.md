@@ -158,8 +158,35 @@ This is a MERN application for user feedback built with stripeJS and Google Oaut
 2. We will now also open our package.json file and create a new script. Go to the scripts section of the file and create a dev script. it should look like this "dev": "nodemon index.js". This now allows us to start our application in development mode by typing the command "npm run dev". This little productvity package is going to save you a lot of time in the developement of your project.
 
 ## Google OAuth - Part 2 - Saving our Data
-1. Install passportJS using the command __"npm install --save passport20"__
+1. __Refactoring our server__ -- In express there is no convention on how to structure your projects. so we will create a folder structure that makes sense for our project. Please make not of the fact that you can structure your project in other ways. For  the purposes of this project we will use 3 main directories and and a server file. It looks something like this:
 
+        =============================================
+        =       =============================       =  
+        =       =                           =       =
+        =       =          CONFIG           =       =
+        =       =          FOLDER           =       =    
+        =       =                           =       =
+        =       =============================       =
+        =       =============================       =  
+        =       =                           =       =
+        =       =          ROUTES           =       =
+        =       =          FOLDER           =       =     
+        =       =                           =       =
+        =       =============================       =
+        =       =============================       =  
+        =       =                           =       =
+        =       =         SERVICES          =       =
+        =       =          FOLDER           =       =     
+        =       =                           =       =
+        =       =============================       =
+        =                 SERVER.JS                 =        
+        =============================================
+
+The config folder holds all of our Secret keys and API keys and settings for our application.
+
+The routes folder is going to hold all of our express routes. we will create individual files for each set of routes
+
+The services folder will hold all of our files that will hold the logic for the different services that we will be using in the project        
 2. remove the test route that we created in index.js
 
 3. require in passport and the passport-google-oauth20 npm packages.
@@ -167,7 +194,7 @@ This is a MERN application for user feedback built with stripeJS and Google Oaut
 4. Tell the passport library how to make use of the google strategy in our app. **"new GoogleAuth"** by creating a new function. we will pass in our logic and configurations to our app.
 
 5. Get our keys from google --> we need to make google aware of our application and tell it that we are going to be using it to authorize people into our application.
-    1. From gooogle, navigate to **"console.developers.google.com"**
+    1. From google, navigate to **"console.developers.google.com"**
 
 		2. if you do not have an account, create owners
 
