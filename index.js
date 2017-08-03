@@ -21,7 +21,7 @@ passport.use(
     (accessToken, refreshToken, profile, done) => {
       console.log('access token', accessToken);
       console.log('refresh token', refreshToken);
-      console.log('profile', profile);
+      console.log('Display Name', profile.displayName);
     }
   )
 );
@@ -37,7 +37,9 @@ app.get(
 );
 
 //google auth callback
-app.get('/auth/google/callback', passport.authenticate('google', {}));
+app.get('/auth/google/callback',
+  passport.authenticate('google', {})
+);
 
 //In production run on env var port || or run on port 5000
 const PORT = process.env.PORT || 5000;
