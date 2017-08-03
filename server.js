@@ -3,11 +3,12 @@ const express = require('express');
 //require passportJS
 require('./services/passport');
 
-const authRoutes = require('./routes/auth');
+
 //generate express app
 const app = express();
 
-authRoutes(app);
+//require auth routes as function and call function on (app)
+require('./routes/auth')(app);
 
 
 //In production run on env var port || or run on port 5000
