@@ -19,9 +19,9 @@ passport.use(
     },
     //this gets executed after the callback. Save access token to DB, it is our key to each user.
     (accessToken, refreshToken, profile, done) => {
-      console.log('access token', accessToken);
-      console.log('refresh token', refreshToken);
-      console.log('profile', profile);
+      console.log(`access token ${accessToken}`);
+      console.log(`refresh token, ${refreshToken}`);
+      console.log(`profile, ${profile}`);
     }
   )
 );
