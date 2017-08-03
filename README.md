@@ -101,7 +101,7 @@ This is a MERN application for user feedback built with stripeJS and Google Oaut
 
 		8. Sign into your Heroku account and select your application. Click on the Deploy tab and scroll down to the Deployment method section of the page. Here you can connect  your github repo to your application. Now when you push code to your remote repo, your application will automatically update.
 
-## Google OAuth
+## Google OAuth - Part 1 - Communicating with Google
 1. Install passportJS using the command __"npm install --save passport20"__
 
 2. remove the test route that we created in index.js
@@ -149,4 +149,32 @@ This is a MERN application for user feedback built with stripeJS and Google Oaut
 			13. We are going to add some arguments to our accessToken arrow function and console log them in the body of the function so that we can get a better idea of what is happening
         1. We console.log "accessToken". this is our proof to google that we have permission to access a particular users account
         2. We console.log the refreshToken. This helps us update our accessToken at some time interval so that we do not lose access to this persons account
-        3. We console.log the profile. This gives us user sepcific information regarding each user, such as, dsplay names, fisrt and last name, email etc. 
+        3. We console.log the profile. This gives us user sepcific information regarding each user, such as, dsplay names, fisrt and last name, email etc.
+
+## Adding a Dev start script to our project
+
+1. install a package called Nodemon.  { https://nodemon.io/ } Nodemon allows us to hot reload while we are developing our project. In other words, we are able to restart our app every time we make a change to our code and save it. We install this package by going to the command line and typing the command "npm i --save-dev nodemon". The "--save-dev" part of the command allows us to save this package in our development dependencies. We save it here because we do not need hot reloading in our production environment.
+
+2. We will now also open our package.json file and create a new script. Go to the scripts section of the file and create a dev script. it should look like this "dev": "nodemon index.js". This now allows us to start our application in development mode by typing the command "npm run dev". This little productvity package is going to save you a lot of time in the developement of your project.
+
+## Google OAuth - Part 2 - Saving our Data
+1. Install passportJS using the command __"npm install --save passport20"__
+
+2. remove the test route that we created in index.js
+
+3. require in passport and the passport-google-oauth20 npm packages.
+
+4. Tell the passport library how to make use of the google strategy in our app. **"new GoogleAuth"** by creating a new function. we will pass in our logic and configurations to our app.
+
+5. Get our keys from google --> we need to make google aware of our application and tell it that we are going to be using it to authorize people into our application.
+    1. From gooogle, navigate to **"console.developers.google.com"**
+
+		2. if you do not have an account, create owners
+
+		3. create a new project in the developer console. Use the taxonomy "projectName-Dev"
+
+		4. go to the Google API console and navigate to the API Manager. Search for the Google+ API. you should see a section titled *"Accessing user data with OAuth"*. Enable this API.
+
+		5. In order for this API to work the  way we need it to, we have to create credentials. Click *"create credentials"* on the top of the page. When credentials opens up choose the *"OAuth client ID"* option
+
+		6. To get a client Id we need to configure a client consent screen.        
