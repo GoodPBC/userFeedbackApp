@@ -5,7 +5,7 @@ const passport = require('passport');
 /* AUTHENTICATION ROUTES*/
 
 //export google auth routes to
-module.exports = (app) => {
+module.exports = app => {
   //google auth route
   app.get(
     '/auth/google',
@@ -15,7 +15,18 @@ module.exports = (app) => {
   );
 
   //google auth callback route
-  app.get('/auth/google/callback',
-    passport.authenticate('google', {})
+  app.get('/auth/google/callback', passport.authenticate('google', {}));
+
+  //IG
+  //ig auth callback route
+  app.get('/auth/instagram', passport.authenticate('instagram'));
+
+  app.get(
+    '/auth/instagram/callback',
+    passport.authenticate('instagram', { failureRedirect: '/login' }),
+    function(req, res) {
+      // Successful authentication, redirect home.
+      res.redirect('/');
+    }
   );
 };
