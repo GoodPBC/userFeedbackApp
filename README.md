@@ -144,6 +144,9 @@ This is a MERN application for user feedback built with stripeJS and Google Oaut
 
 			11. So now that we have create our 'auth/google/callback' route we are getting a hanging response from google. we will refer back to our accessToken the we logged earlier and we will add some properties like refreshToken, profile and done. When we defined the google strategy we added a callback function as a second argument. We call it and console log it.
 
-			12. So now we have redirected our user to google, google gave us permission to access the selected user account, we got sent back to our callback URL with a code from google, we then send a request to google with the code in it and get the user account details. We call the accessToken arrow function and save our user info to our database
+			12. So now we have redirected our user to google, google gave us permission to access the selected user account, we got sent back to our callback URL with a code from google, we then send a request to google with the code in it and get the user account details.After that callback request was made, We call that second argument in Google strategy, the accessToken arrow function, and save our user info to our database
 
 			13. We are going to add some arguments to our accessToken arrow function and console log them in the body of the function so that we can get a better idea of what is happening
+        1. We console.log "accessToken". this is our proof to google that we have permission to access a particular users account
+        2. We console.log the refreshToken. This helps us update our accessToken at some time interval so that we do not lose access to this persons account
+        3. We console.log the profile. This gives us user sepcific information regarding each user, such as, dsplay names, fisrt and last name, email etc. 

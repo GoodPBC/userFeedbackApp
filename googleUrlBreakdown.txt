@@ -19,3 +19,5 @@ http://localhost:5000/auth/google/callback
 along with an error message Cannot "GET /auth/google/callback"
 
 This means google has sent us back to our server but we do not yet have a route to respond to google.
+
+=============================================================================
