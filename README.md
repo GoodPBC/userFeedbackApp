@@ -1,18 +1,18 @@
 # userFeedbackApp
-This is a MERN application for user feedback built with stripeJS &amp; Google Oauth
+This is a MERN application for user feedback built with stripeJS and Google Oauth
 
 
 ## Heroku Deployment Checklist
 1. __Dynamic Port Binding__ - when we deploy our app, Heroku is going to expect us to listen for incoming http traffic on a specific port
 
-    **when Heroku runs our app it has the ability to inject environment variables --> look at "const PORT =process.env.PORT || 5000" in server.js**
+    **when Heroku runs our app it has the ability to inject environment variables --> look at "const PORT = process.env.PORT || 5000" in server.js**
 
 
 2. __Specify the Node Environment__
 
     **Tell Heroku to use a specific node -v**
 
-		We are using a very advanced version of node in development. It would certainly crash Heroku in production so we need to tell Heroku what version of NodeJS that we want it to use.
+		As of the time of writing this we are using a very advanced version of node in development. It would certainly crash Heroku in production so we need to tell Heroku what version of NodeJS that we want it to use.
 
     We must go to our package.JSON file and add an "engines" key to the file and specify your node and npm versions. Here we will use node 8.1.1 and npm 5.0.3
 
@@ -138,4 +138,12 @@ This is a MERN application for user feedback built with stripeJS &amp; Google Oa
 
 			8. We will no create our express "get" route "/auth/google" and pass it passport's authenticate method using the google strategy by referencing 'google'. GoogleStrategy has built in logic that has an internal identifier of 'google' and it says if anyone tries to authenticate with 'google', use GoogleStrategy. Scope specify's to google what access we want from google. These are the permissions we are requesting on this user from Google. This list is predefined
 
-			9. We are ready to test in the browser. Fire up your application and visit your auth route. We are going to get to google but the fact is that we are going to see a 404 with an error message that says "redirect_uri_mismatch". This is for security purposes so that goolge can prevent URI spoofing We are going to fix this by grabbing the link in the error message, which takes us back to our google developer console so that we can change and changing it to our Authorized redirect URI of = '/auth/google/callback' 
+			9. We are ready to test in the browser. Fire up your application and visit your auth route. We are going to get to google but the fact is that we are going to see a 404 with an error message that says "redirect_uri_mismatch". This is for security purposes so that google can prevent URI spoofing We are going to fix this by grabbing the link in the error message, which takes us back to our google developer console so that we can change and changing it to our Authorized redirect URI of = '/auth/google/callback'
+
+			10. once we change this we should be able to restart our server and go to 'localhost:5000/auth/google'. this should take us to the point of choosing our google account. when we do we will get back  an error message 'Cannot GET /auth/google/callback'. This means google has sent us back to our server but we do not yet have a route to respond to google where we can give it back our verification code. We now have to add in our callback handler express route
+
+			11. So now that we have create our 'auth/google/callback' route we are getting a hanging response from google. we will refer back to our accessToken the we logged earlier and we will add some properties like refreshToken, profile and done. When we defined the google strategy we added a callback function as a second argument. We call it and console log it.
+
+			12. So now we have redirected our user to google, google gave us permission to access the selected user account, we got sent back to our callback URL with a code from google, we then send a request to google with the code in it and get the user account details. We call the accessToken arrow function and save our user info to our database
+
+			13. We are going to add some arguments to our accessToken arrow function and console log them in the body of the function so that we can get a better idea of what is happening
