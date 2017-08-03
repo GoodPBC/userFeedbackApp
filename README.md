@@ -186,22 +186,15 @@ The config folder holds all of our Secret keys and API keys and settings for our
 
 The routes folder is going to hold all of our express routes. we will create individual files for each set of routes
 
-The services folder will hold all of our files that will hold the logic for the different services that we will be using in the project        
-2. remove the test route that we created in index.js
+The services folder will hold all of our files that will hold the logic for the different services that we will be using in the project. This is for helper modules and business logic.
 
-3. require in passport and the passport-google-oauth20 npm packages.
+We are now going to refactor a bunch of our code in order to make our project work within our new project folder and files structure
+2. we are going to create our routes folder first. Inside the routes folder we will create a "auth.js" file. We will pull our route handlers from the server.js file and past them into auth.
 
-4. Tell the passport library how to make use of the google strategy in our app. **"new GoogleAuth"** by creating a new function. we will pass in our logic and configurations to our app.
+3. make a services directory and create a passport.js file. Go to server.js and cut the passport strategy and paste it into our passport file.
 
-5. Get our keys from google --> we need to make google aware of our application and tell it that we are going to be using it to authorize people into our application.
-    1. From google, navigate to **"console.developers.google.com"**
+3. go to server.js and cut all of the require statements except the express statement and paste them into the passport.js file. We have to refactor the keys require from ('./config') to ('../config')
 
-		2. if you do not have an account, create owners
+4. So just because we have the passport.js file in our project directory, does not mean that it will be automatically executed because we do not yet require it anywhere into our project structure. so we should require it to our server.js file so that it gets ran.We require it like so: __const passportConfig = require('./sevices/passport');__  One more thing... inside of passport.js we are not really exporting any code, so we do not need the require statement to assign the file to a const. so we condense it to __require('./sevices/passport');__
 
-		3. create a new project in the developer console. Use the taxonomy "projectName-Dev"
-
-		4. go to the Google API console and navigate to the API Manager. Search for the Google+ API. you should see a section titled *"Accessing user data with OAuth"*. Enable this API.
-
-		5. In order for this API to work the  way we need it to, we have to create credentials. Click *"create credentials"* on the top of the page. When credentials opens up choose the *"OAuth client ID"* option
-
-		6. To get a client Id we need to configure a client consent screen.        
+5. Lets take a look at the routes folder and the auth file in the folder. In this file we make use of the passport library so we have to require it; __const passport = require('passport')__ Understand that here we are require the npm module. Another big change we must make is on the route handlers. Right now we are using get routes on the __app__ object in the routes file but we do not define that app object in the routes file. We define it in our server file. We need a way to bring the app object into the routes file. We do this by using module.exports and setting it equal to an arrow function that we wrap our routes with. so now we are exporting that function. We are going to bring it into server.js in an interesting way 
