@@ -30,12 +30,15 @@ passport.use(
     {
       clientID: keys.INSTAGRAM_CLIENT_ID,
       clientSecret: keys.INSTAGRAM_CLIENT_SECRET,
-      callbackURL: 'http://127.0.0.1:3000/auth/instagram/callback'
+      callbackURL: 'http://localhost:5000/auth/instagram/callback'
     },
-    function(accessToken, refreshToken, profile, done) {
-      User.findOrCreate({ instagramId: profile.id }, function(err, user) {
-        return done(err, user);
-      });
+    (accessToken, refreshToken, profile, done) => {
+      console.log('access token', accessToken);
+      console.log('refresh token', refreshToken);
+      console.log('Display Name', profile);
+      // User.findOrCreate({ instagramId: profile.id }, function(err, user) {
+      //   return done(err, user);
+      // });
     }
   )
 );
