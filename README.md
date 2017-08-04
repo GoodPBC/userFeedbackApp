@@ -3,9 +3,9 @@ This is a MERN application for user feedback built with stripeJS and Google Oaut
 
 
 ## Heroku Deployment Checklist
-1. __Dynamic Port Binding__ - when we deploy our app, Heroku is going to expect us to listen for incoming http traffic on a specific port
+1. __Dynamic Port Binding__ - when we deploy our app, Heroku.com is going to expect us to listen for incoming http traffic on a specific port
 
-    **when Heroku runs our app it has the ability to inject environment variables --> look at "const PORT = process.env.PORT || 5000" in server.js**
+    **When Heroku runs our app it has the ability to inject environment variables --> look at "const PORT = process.env.PORT || 5000" in server.js**
 
 
 2. __Specify the Node Environment__
@@ -38,9 +38,9 @@ This is a MERN application for user feedback built with stripeJS and Google Oaut
 
   2. Start git with the "git init command"
 
-  3. Add the files in your project by typing "git add ."
+  3. Add the files in your project by typing "git add ." which adds all of your files in the project directory to git to be tracked
 
-  4. commit the files to git by typing "git commit -m 'some Commit Message'."
+  4. commit the files to git by typing "git commit -m 'some Commit Message'." this tracks each change you make to a file.
 
 3. __Install Heroku CLI and create a Heroku App__
 
@@ -95,7 +95,7 @@ This is a MERN application for user feedback built with stripeJS and Google Oaut
 
     5. In Terminal, add the URL for the remote repository where your local repository will be pushed. **"git remote add origin (add remote repository URL)"** to set the new remote repository
 
-		6. type **"git remote -v"** to verifie the new remote URL
+		6. type **"git remote -v"** to Verify the new remote URL
 
 		7. Push the changes in your local repository to GitHub. Type **"git push -u origin master"**. This pushes local changes to the remote Github Repo.
 
@@ -238,3 +238,7 @@ We are now going to refactor a bunch of our code in order to make our project wo
 
 8. __Basics of Mongo___ AS you may have noticed we have added mongo and mongoose the project. Mongo stores records in collections. Collections have documents inside them. these area our records. in a user collection there would be lots of user documents. Every record is an object. Everything in mongo is stored in key value pairs. Mongo is known for being a "schemaless"
 database, also known as a "NoSQL" database. __Mongoose__ is a library that makes it easier for us to work with MONGODB.
+
+9. We are going to set up a remote mongo instance because it is easier to maintain and trouble shoot. Local mongodb can be a little challenging for some folks so the remote takes care of that.  Go to http://mlab.com. create an account if you do not have one already. Once you login you will be taken to your dashboard. create a new database on the free plan. We will create a sandbox on AWS.  pick the US east region or the one closest to you. Enter a DB name and leave the default version for the DB. You should see a new DB on dashboard. Click on your db and you will se some instructions and 2 warnings.It is important that we pay attention to the second warning that says we need a user. this does not mean a user of our applkication it means that we need a db admin. We click on the Users tab and click the **"+Add database user button"** We must create a username and a secure password. **MAKE SURE YOU UNCHECK READ ONLY**. Thats it.
+
+10. Setting up Mongoose
