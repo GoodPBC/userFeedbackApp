@@ -197,4 +197,44 @@ We are now going to refactor a bunch of our code in order to make our project wo
 
 4. So just because we have the passport.js file in our project directory, does not mean that it will be automatically executed because we do not yet require it anywhere into our project structure. so we should require it to our server.js file so that it gets ran.We require it like so: __const passportConfig = require('./sevices/passport');__  One more thing... inside of passport.js we are not really exporting any code, so we do not need the require statement to assign the file to a const. so we condense it to __require('./sevices/passport');__
 
-5. Lets take a look at the routes folder and the auth file in the folder. In this file we make use of the passport library so we have to require it; __const passport = require('passport')__ Understand that here we are require the npm module. Another big change we must make is on the route handlers. Right now we are using get routes on the __app__ object in the routes file but we do not define that app object in the routes file. We define it in our server file. We need a way to bring the app object into the routes file. We do this by using module.exports and setting it equal to an arrow function that we wrap our routes with. so now we are exporting that function. We are going to bring it into server.js in an interesting way 
+5. Lets take a look at the routes folder and the auth file in the folder. In this file we make use of the passport library so we have to require it; __const passport = require('passport')__ Understand that here we are require the npm module. Another big change we must make is on the route handlers. Right now we are using get routes on the __app__ object in the routes file but we do not define that app object in the routes file. We define it in our server file. We need a way to bring the app object into the routes file. We do this by using module.exports and setting it equal to an arrow function that we wrap our routes with. so now we are exporting that function. We are going to bring it into server.js in an interesting way.
+
+6. Understanding email/password authentication. A user signs in with an email / pw combo. we right it down on our server. time goes by and they leave. later on they come back with the same combo and we are able t identify the combo. When it comes to Oauth though we do not have an email / pw combo. We have to find a way to identify them that will always be consistent. We will find a way to save the user id from either google or Instagram because it will always stay the same.
+
+7. __oAuth flow__ our server takes a users proflie and creates a record on our server. We then check our DB for the user to see if they signed up before. If yes, great we know who they user is. If no, we create the user and take a cookie and put the users id inside of it and we send that cookie back to the users browser. Once we do that the user can make any subsequent requests that they want to. Now if the user creates something in our app. When they log out the cookie is invalidated. When they come back, They have to log in again. Now we create a new cookie for the same user that has the same id. Anytime a user visits our app, we will always look for them in our DB before creating a new record.
+
+=============================================
+=  ==============  =  
+=  =            =  =
+=  =   REACTJS  =  =
+=  =     APP    =  =    
+=  =            =  =
+=  ==============  =
+         =                 ==============================
+         = <============== =  HTTP REQUEST || JSON DATA =
+				 V                 ==============================
+=  ==============  =  
+=  =            =  =
+=  =   NODEJS   =  =
+=  =   XPRESS   =  =     
+=  =    API     =  =
+=  ==============  =
+=  ==============  =  
+=  =            =  =
+=  =  MONGOOSE  =  =
+=  =            =  =     
+=  =            =  =
+=  ==============  =
+=  ==============  =  
+=  =            =  =
+=  =   MONGODB  =  =
+=  =            =  =     
+=  =            =  =
+=  ==============  =
+=     SERVER.JS    =        
+====================
+
+##Setting up our MongoDB database
+
+8. __Basics of Mongo___ AS you may have noticed we have added mongo and mongoose the project. Mongo stores records in collections. Collections have documents inside them. these area our records. in a user collection there would be lots of user documents. Every record is an object. Everything in mongo is stored in key value pairs. Mongo is known for being a "schemaless"
+database, also known as a "NoSQL" database. __Mongoose__ is a library that makes it easier for us to work with MONGODB.
