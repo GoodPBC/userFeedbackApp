@@ -204,34 +204,6 @@ We are now going to refactor a bunch of our code in order to make our project wo
 7. __oAuth flow__ our server takes a users proflie and creates a record on our server. We then check our DB for the user to see if they signed up before. If yes, great we know who they user is. If no, we create the user and take a cookie and put the users id inside of it and we send that cookie back to the users browser. Once we do that the user can make any subsequent requests that they want to. Now if the user creates something in our app. When they log out the cookie is invalidated. When they come back, They have to log in again. Now we create a new cookie for the same user that has the same id. Anytime a user visits our app, we will always look for them in our DB before creating a new record.
 
 
-      =  ==============  =  
-      =  =            =  =
-      =  =   REACTJS  =  =
-      =  =     APP    =  =    
-      =  =            =  =
-      =  ==============  =
-               =                 ==============================
-               = <============== =  HTTP REQUEST || JSON DATA =
-      				 V                 ==============================
-      =  ==============  =  
-      =  =            =  =
-      =  =   NODEJS   =  =
-      =  =   XPRESS   =  =     
-      =  =    API     =  =
-      =  ==============  =  
-      =  =            =  =
-      =  =  MONGOOSE  =  =
-      =  =            =  =     
-      =  =            =  =
-      =  ==============  =
-      =  ==============  =  
-      =  =            =  =
-      =  =   MONGODB  =  =
-      =  =            =  =     
-      =  =            =  =
-      =  ==============  =
-      =     SERVER.JS    =        
-      ====================
 
 ##Setting up our MongoDB database
 
