@@ -9,4 +9,4 @@ const userSchema = new Schema ({
   instagramId: String
 });
 
-mongoose.model('Users', userSchema);
+mongoose.model('User', userSchema);
