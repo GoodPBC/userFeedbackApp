@@ -25,20 +25,20 @@ passport.use(
 );
 
 //Instagram Passport Strategy
-passport.use(
-  new InstagramStrategy(
-    {
-      clientID: keys.INSTAGRAM_CLIENT_ID,
-      clientSecret: keys.INSTAGRAM_CLIENT_SECRET,
-      callbackURL: 'http://localhost:5000/auth/instagram/callback'
-    },
-    (accessToken, refreshToken, profile, done) => {
-      console.log('access token', accessToken);
-      console.log('refresh token', refreshToken);
-      console.log('Display Name', profile);
-      // User.findOrCreate({ instagramId: profile.id }, function(err, user) {
-      //   return done(err, user);
-      // });
-    }
-  )
-);
+// passport.use(
+//   new InstagramStrategy(
+//     {
+//       clientID: keys.INSTAGRAM_CLIENT_ID,
+//       clientSecret: keys.INSTAGRAM_CLIENT_SECRET,
+//       callbackURL: 'http://localhost:5000/auth/instagram/callback'
+//     },
+//     (accessToken, refreshToken, profile, done) => {
+//       console.log('access token', accessToken);
+//       console.log('refresh token', refreshToken);
+//       console.log('Display Name', profile);
+//       // User.findOrCreate({ instagramId: profile.id }, function(err, user) {
+//       //   return done(err, user);
+//       // });
+//     }
+//   )
+// );
