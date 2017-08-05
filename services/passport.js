@@ -4,8 +4,13 @@ const passport = require('passport');
 const GoogleStrategy = require('passport-google-oauth20').Strategy;
 //Instagram Passport Strategy
 const InstagramStrategy = require('passport-instagram');
+//require mongoose
+const mongoose = require('mongoose')
 //google keys
 const keys = require('../config/keys');
+
+//require our mongoose userSchema
+const User = mongoose.model('User')
 
 // Google Stategy
 passport.use(
