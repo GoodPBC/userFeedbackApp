@@ -4,10 +4,11 @@ const express = require('express');
 const mongoose = require('mongoose');
 //require config file
 const keys = require('./config/keys');
-//require passportJS
-require('./services/passport');
+
 //require mongoose UserSchema
 require('./models/User');
+//require passportJS
+require('./services/passport');
 
 //mongo connection
 mongoose.connect(keys.mongoURI);
