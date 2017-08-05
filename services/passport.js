@@ -6,11 +6,13 @@ const GoogleStrategy = require('passport-google-oauth20').Strategy;
 const InstagramStrategy = require('passport-instagram');
 //require mongoose
 const mongoose = require('mongoose')
+//require our mongoose userSchema
+const User = mongoose.model('User');
+
 //google keys
 const keys = require('../config/keys');
 
-//require our mongoose userSchema
-const User = mongoose.model('User')
+
 
 // Google Stategy
 passport.use(
@@ -22,6 +24,7 @@ passport.use(
     },
     //this gets executed after the callback. Save access token to DB, it is our key to each user.
     (accessToken, refreshToken, profile, done) => {
+      new User({ googleId: profile.id}).save();
       console.log('access token', accessToken);
       console.log('refresh token', refreshToken);
       console.log('Display Name', profile);
