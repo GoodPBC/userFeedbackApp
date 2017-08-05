@@ -1,5 +1,8 @@
 //import express
 const express = require('express');
+
+//require mongoose UserSchema
+require('./models/User');
 //require mongoose
 const mongoose = require('mongoose');
 //require config file
