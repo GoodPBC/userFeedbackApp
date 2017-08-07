@@ -6,7 +6,12 @@ const Schema  = mongoose.Schema;
 //create new user schema
 const userSchema = new Schema ({
   googleId: String,
-  instagramId: String
+  instagramId: String,
+  displayName: String,
+  name: {
+    first: String,
+    last: String
+  }
 });
 
 mongoose.model('User', userSchema);
