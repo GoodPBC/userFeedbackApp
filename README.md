@@ -258,4 +258,4 @@ We are going to create a dv.js file in config folder and we are goin gto cut our
 
 When we deploy to heroku their is an existing environment variable called NODE_ENV. It tells us whether or not we are running in a production environment. We used this in our PORT const in server.sj
 
-inside keys.js we are going to use an if statement that will tell our app which set of keys to use. We will do this using an if else statement. if on production, use production if on dev, use dev.
+inside keys.js we are going to use an if statement that will tell our app which set of keys to use. We will do this using an if else statement. if on production, use production if on dev, use dev. We will include our prod.js file into our push's so that heroku can use the environment variables in production
