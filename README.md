@@ -234,4 +234,7 @@ To do this we need to use the "findOne" method that mongoose gives us to look up
 
 16. __deserializeUser__ here we take the id that we stuffed in the cookie and turn it back into a user model.
 
-17. __Enable Cookies__ We need to tell passport to make use of cookies to manage auth in our app. Out of the box express does not handle cookies so we have install a helper library so we go to terminal and type **"npm install --save cookie-session"**. 
+17. __Enable Cookies__ We need to tell passport to make use of cookies to manage auth in our app. Out of the box express does not handle cookies so we have install a helper library so we go to terminal and type **"npm install --save cookie-session"**. We are going to our server.js were we do all of our initial setup.
+
+
+18. __logging out users.__ inside auth routes, we need create a route handler. to hand the loggin out of users. we use "req.logout();" to logout inside of our api/logout route
