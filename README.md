@@ -231,3 +231,5 @@ To do this we need to use the "findOne" method that mongoose gives us to look up
 
 **Important Note**
   oAuths only purpose is to allow someone to sign in, after that we use our own internal id's to identify users. Here we are using the mongoID that we reference with user.id
+
+16. __deserializeUser__ here we take the id that we stuffed in the cookie and turn it back into a user model.

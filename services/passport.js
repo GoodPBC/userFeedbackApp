@@ -12,8 +12,19 @@ const keys = require('../config/keys');
 //require our mongoose userSchema
 const User = mongoose.model('User');
 
+//put an identifier in our cookie
 passport.serializeUser((user, done) => {
   done(null, user.id); //this is our db user id (_id) from mongo
+});
+
+//turn the identifier into a user model
+passport.deserializeUser((id, done) => {
+  //find user by mongo id
+  User.findById(id)
+    //turn into a user
+    .then(user => {
+      done(null, user);
+    });
 });
 
 // Google Stategy
