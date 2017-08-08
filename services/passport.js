@@ -5,14 +5,12 @@ const GoogleStrategy = require('passport-google-oauth20').Strategy;
 //Instagram Passport Strategy
 const InstagramStrategy = require('passport-instagram');
 //require mongoose
-const mongoose = require('mongoose')
+const mongoose = require('mongoose');
 //require our mongoose userSchema
 const User = mongoose.model('User');
 
 //google keys
 const keys = require('../config/keys');
-
-
 
 // Google Stategy
 passport.use(
@@ -24,18 +22,22 @@ passport.use(
     },
     //this gets executed after the callback. Save access token to DB, it is our key to each user.
     (accessToken, refreshToken, profile, done) => {
+      //we search for a user with a googleId that is equal to profile.id
       User.findOne({ googleId: profile.id })
-        .then((existingUser) => {
+        //then look for existingUser
+        .then(existingUser => {
+          //if a record exists do nothing
           if (existingUser) {
             //
           } else {
-            //
-            new User({
-              googleId: profile.id
-            }).save();
+            //if a record doesnt exist, create one
+            new User({ googleId: profile.id })
+              //save it
+              .save()
+              //run the done CB function
+              .then(user => done(null, user));
           }
-        })
-
+        });
 
       console.log('access token', accessToken);
       console.log('refresh token', refreshToken);
