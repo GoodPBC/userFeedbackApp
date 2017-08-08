@@ -237,4 +237,25 @@ To do this we need to use the "findOne" method that mongoose gives us to look up
 17. __Enable Cookies__ We need to tell passport to make use of cookies to manage auth in our app. Out of the box express does not handle cookies so we have install a helper library so we go to terminal and type **"npm install --save cookie-session"**. We are going to our server.js were we do all of our initial setup.
 
 
-18. __logging out users.__ inside auth routes, we need create a route handler. to hand the loggin out of users. we use "req.logout();" to logout inside of our api/logout route
+18. __logging out users.__ inside auth routes, we need create a route handler. to hand the logging out of users. we use "req.logout();" to logout inside of our api/logout route
+
+
+## Dev VS. Production Environments
+
+1. __Dev VS. Production Keys__ we have keys file in config file. We should have 2 seperate sets of keys one for dev and on for Production. dev we store on our machine, production we store remotely on Heroku. One is for security and 2 is so we can have a separate DB for our production users. We are going to refactor our keys.js file. We need seperate credentials for our API's. generate a production project in the google developer console.
+  1. Create new Database with VERY secure password and DB user
+  2. Create prod version of Google API key. enable the google+ API, Create Credentials, configure consent screen(spend some time for production) We are going to switch the redirectURI's from local host to our heroku application.
+
+2. __Determining Environment__ For our production application google requires us to enter our Authorized Javascript Origin and our Authorized redirect URI.
+These will be set to heroku domains. You want to use your home page for us it is:
+    redirectURI =  __"https://salty-anchorage-75143.herokuapp.com/auth/google/callback"__
+		Javascript Origin = __"https://salty-anchorage-75143.herokuapp.com"__
+
+We now have mongo and google credentials for prouduction set up.
+As of now we are not commit our /config.keys.js file to git. we are going to change that. we will now remove it from the .gitignore file so that the app knows what to do in dev or production. We will not commit our new config/dev.js
+
+We are going to create a dv.js file in config folder and we are goin gto cut our config file and paste it into this new file. The dev file will never get committed to github. We need to go back to keys.js an figure out how to understand whether we are in PROD or DEV.
+
+When we deploy to heroku their is an existing environment variable called NODE_ENV. It tells us whether or not we are running in a production environment. We used this in our PORT const in server.sj
+
+inside keys.js we are going to use an if statement that will tell our app which set of keys to use.
