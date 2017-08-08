@@ -6,11 +6,15 @@ const GoogleStrategy = require('passport-google-oauth20').Strategy;
 const InstagramStrategy = require('passport-instagram');
 //require mongoose
 const mongoose = require('mongoose');
+//google keys
+const keys = require('../config/keys');
+
 //require our mongoose userSchema
 const User = mongoose.model('User');
 
-//google keys
-const keys = require('../config/keys');
+passport.serializeUser((user, done) => {
+  done(null, user.id); //this is our db user id (_id) from mongo
+});
 
 // Google Stategy
 passport.use(
@@ -38,7 +42,7 @@ passport.use(
               .then(user => done(null, user));
           }
         });
-
+      //remove from production
       console.log('access token', accessToken);
       console.log('refresh token', refreshToken);
       console.log('Display Name', profile);
