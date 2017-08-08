@@ -29,8 +29,13 @@ module.exports = app => {
       res.redirect('/');
     }
   );
-
+  //API Route to return user object for logged in user
   app.get('/api/current_user', (req, res) => {
+    res.send(req.user);
+  });
+  //log out
+  app.get('/api/logout', (req, res) => {
+    req.logout();
     res.send(req.user);
   });
 };
