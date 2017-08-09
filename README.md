@@ -256,6 +256,17 @@ As of now we are not commit our /config.keys.js file to git. we are going to cha
 
 We are going to create a dv.js file in config folder and we are goin gto cut our config file and paste it into this new file. The dev file will never get committed to github. We need to go back to keys.js an figure out how to understand whether we are in PROD or DEV.
 
-When we deploy to heroku their is an existing environment variable called NODE_ENV. It tells us whether or not we are running in a production environment. We used this in our PORT const in server.sj
+When we deploy to heroku their is an existing environment variable called NODE_ENV. It tells us whether or not we are running in a production environment. We used this in our PORT const in server.js
 
 inside keys.js we are going to use an if statement that will tell our app which set of keys to use. We will do this using an if else statement. if on production, use production if on dev, use dev. We will include our prod.js file into our push's so that heroku can use the environment variables in production
+
+
+#Client Side React
+
+##Creating our React app
+
+We are going to use the Create React App, application generator. It gives us a ton of utility. By using this though we will need to focus and take some time to understand what is going on under the hood.
+
+1. __React App Generation__ https://github.com/facebookincubator/create-react-app go to this link. Read through the documentation. run the command "npm i -g create-react-app" in the terminal. this will install the create-react-app framwork on your machine globally. We are going to generate a new react project. go to the terminal and make sure you are in your project directory. type in the command "create-react-app client". It is very important that you call the app "client".
+
+2. __Seperate front end server__ We have a new react project called client. It is a folder in our project. This houses everything having to do with react. It has its ownd built in server. We need to start the server to get it to work. In our project we need to navigate to the client folder and type npm start to run the client side server
