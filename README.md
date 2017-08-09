@@ -271,7 +271,7 @@ We are going to use the Create React App, application generator. It gives us a t
 
 2. __Seperate front end server__ We have a new react project called client. It is a folder in our project. This houses everything having to do with react. It has its ownd built in server. We need to start the server to get it to work. In our project we need to navigate to the client folder and type npm start to run the client side server. We are using a separate server for the front end. inorder to start the react server we run yarn start from the client directory. we find it at "http://localhost:3000".  
 
-												=================
+```											=================
 												=    BROWSER    =
 												=================														 
 												|               |
@@ -285,4 +285,4 @@ We are going to use the Create React App, application generator. It gives us a t
 					v  v       v								v
 	========== ======= ==========       =========
 	=ButtonJS= =AppJS= =HeaderJS=       =MongoDB=
-	========== ======= ==========       =========					
+	========== ======= ==========       =========```
