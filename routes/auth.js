@@ -6,6 +6,10 @@ const passport = require('passport');
 
 //export google auth routes to
 module.exports = app => {
+  app.get('/dashboard', (req, res) => {
+    res.send('This is is the dashboard');
+  });
+
   //google auth route
   app.get(
     '/auth/google',
@@ -15,7 +19,13 @@ module.exports = app => {
   );
 
   //google auth callback route
-  app.get('/auth/google/callback', passport.authenticate('google', {}));
+  app.get(
+    '/auth/google/callback',
+    passport.authenticate('google', { failureRedirect: '/login' }),
+    (req, res) => {
+      res.redirect('/');
+    }
+  );
 
   //IG
   //ig auth callback route
@@ -24,7 +34,7 @@ module.exports = app => {
   app.get(
     '/auth/instagram/callback',
     passport.authenticate('instagram', { failureRedirect: '/login' }),
-    function(req, res) {
+    (req, res) => {
       // Successful authentication, redirect home.
       res.redirect('/');
     }

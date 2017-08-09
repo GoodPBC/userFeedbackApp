@@ -33,7 +33,7 @@ passport.use(
     {
       clientID: keys.googleClientID, // keys
       clientSecret: keys.googleClientSecret, //secret key
-      callbackURL: '/auth/google/callback' //callback URL
+      callbackURL: 'http://localhost:5000/auth/google/callback' //callback URL
     },
     //this gets executed after the callback. Save access token to DB, it is our key to each user.
     (accessToken, refreshToken, profile, done) => {
