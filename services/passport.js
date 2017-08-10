@@ -36,27 +36,17 @@ passport.use(
       callbackURL: 'http://localhost:5000/auth/google/callback' //callback URL
     },
     //this gets executed after the callback. Save access token to DB, it is our key to each user.
-    (accessToken, refreshToken, profile, done) => {
+    async (accessToken, refreshToken, profile, done) => {
       //we search for a user with a googleId that is equal to profile.id
-      User.findOne({ googleId: profile.id })
-        //then look for existingUser
-        .then(existingUser => {
-          //if a record exists do nothing
-          if (existingUser) {
-            //
-          } else {
-            //if a record doesnt exist, create one
-            new User({ googleId: profile.id })
-              //save it
-              .save()
-              //run the done CB function
-              .then(user => done(null, user));
-          }
-        });
-      //remove from production
-      console.log('access token', accessToken);
-      console.log('refresh token', refreshToken);
-      console.log('Display Name', profile);
+      const existingUser = await User.findOne({ googleId: profile.id });
+
+      //if a record exists do nothing
+      if (existingUser) {
+        return done(null, existingUser);
+      }
+      //if a record doesnt exist, create one
+      const user = await new User({ googleId: profile.id }).save();
+      done(null, user);
     }
   )
 );

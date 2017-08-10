@@ -278,4 +278,7 @@ We need a good way to not have to start and stop two different servers everytime
 
 	3. __Making dual server Route changes__  We need to create a little fix to get the routes to work properly for our dual server architecture. In our client we want to create a link so that when it is pressed it takes the user into our Oauth flow. We will create an anchor tag in our App.js parent component and feed it the rel path to our oAuth. **/auth/google** This is not going to work for us though because our route handler logic is on our express server which is located at port 5000. We can use the absolute path and say **http://localhost:5000/auth/google**. That will work, but it will only work in dev, as it is hard coded. We fix this by adding a proxy to tour react apps package.json file. We then also need to update our dev app in the google developer console to reflect our new google auth callback at localhost at port 3000.
 
-	4. __The Create React app Proxy__
+	4. __The Create React app Proxy__ IN production the create-react-app server doesnt exist. before we deploy to production we are going to build our app.
+
+
+##Developing the front end
