@@ -282,3 +282,8 @@ We need a good way to not have to start and stop two different servers everytime
 
 
 ##Developing the front end
+
+1. __Switching from promises to async/await__ we are going to be inside of the passport.js file in the services directory. So in our call back function for our google stratey we are using promises to control  the flow of our program in two places. First we are using ".then" to do a database lookup and **THEN** if we find a user we do nothing. If we do not find a user we create on and save it. **THEN** we return a promise and we
+
+2. __Setting up React, React Router and Redux__ We are going to delete all of the files in our client source folder, except registerServiceWorker. We are going to have a root file called index.js which is going to handle the boot for the react and redux side of our app. We can think if this as our "Data Layer Control" its going to be all about redux. We are also going to create a file called App.js
+App.js is going to be responsible for our rendering layer control. This will be the primary place for our redux. We are going to have a pretty decent amount of config around redux and react router in our app, so we do not wnat all of that in a single file becasue it will get confusing. Go to the terminal and kill the server. This is very important. We ALWAYS want to make sure that we are installing new dependencies in the proper package.json file because we have 2 now. Go into the client and install Redux react-redux react-router-dom. We are going to create a new file called index.js in the src folder in the client directory. We will import React and ReactDom. We will write a ReactDom.render(); function.
