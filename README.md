@@ -288,4 +288,10 @@ We need a good way to not have to start and stop two different servers everytime
 2. __Setting up React, React Router and Redux__ We are going to delete all of the files in our client source folder, except registerServiceWorker. We are going to have a root file called index.js which is going to handle the boot for the react and redux side of our app. We can think if this as our "Data Layer Control" its going to be all about redux. We are also going to create a file called App.js
 App.js is going to be responsible for our rendering layer control. This will be the primary place for our redux. We are going to have a pretty decent amount of config around redux and react router in our app, so we do not want all of that in a single file because it will get confusing. Go to the terminal and kill the server. This is very important. We ALWAYS want to make sure that we are installing new dependencies in the proper package.json file because we have 2 now. Go into the client and install Redux react-redux react-router-dom. We are going to create a new file called index.js in the src folder in the client directory. We will import React and ReactDom. We will write a ReactDom.render(); function.
 
-We are going to create the components directory in the src directory. in components create at he App.js file.  We will import react, create a functional component called App and finally export it.
+We are going to create the components directory in the src directory. in components create at he App.js file.  We will import react, create a functional component called App and finally export it.If a file is exporting a component of anytype whether it be functional or class based we will name it with a capital letter. If the file is just retruning functions we use lowercase letters.
+
+inside of index.js import App from ./components/app and render app to the root element. first argument is the component second arg is the div with the #root id.
+
+go ahead and fire up with npm run dev. We notice that we get an error message that is emitted from the client. IT is related to the npm version. If you see this error, kill the running server. delete the package-lock-json in the client directory and restart the server. It works!
+
+###
