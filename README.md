@@ -294,4 +294,4 @@ inside of index.js import App from ./components/app and render app to the root e
 
 go ahead and fire up with npm run dev. We notice that we get an error message that is emitted from the client. IT is related to the npm version. If you see this error, kill the running server. delete the package-lock-json in the client directory and restart the server. It works!
 
-###
+###Redux review and setup
