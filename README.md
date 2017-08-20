@@ -149,7 +149,7 @@ This is a MERN application for user feedback built with stripeJS and Google Oaut
 			13. We are going to add some arguments to our accessToken arrow function and console log them in the body of the function so that we can get a better idea of what is happening
         1. We console.log "accessToken". this is our proof to google that we have permission to access a particular users account
         2. We console.log the refreshToken. This helps us update our accessToken at some time interval so that we do not lose access to this persons account
-        3. We console.log the profile. This gives us user sepcific information regarding each user, such as, dsplay names, fisrt and last name, email etc.
+        3. We console.log the profile. This gives us user specific information regarding each user, such as, display names, first and last name, email etc.
 
 ## Adding a Dev start script to our project
 
@@ -222,7 +222,7 @@ database, also known as a "NoSQL" database. __Mongoose__ is a library that makes
 
 To do this we need to use the "findOne" method that mongoose gives us to look up a record by googleId.  This is a query.
 
-14. __Passport Callbacks__ After we create our user we have to inform passport that we are done creating our database record so that it can continue its auth process. we do this with the ".done" method. if you notice the 4th argument in the passport CB function is done. This tells passport we are finished and that it can resume. We have to call this function. In order to call it we have to call it with 2 arguments. In the case were we find a user in the database calling this function is simple. We feed it the two arguments and thats it.first one is null an error object, second is user record (existingUser).  In the case where we have to create a user, we need to take extra steps. Remember anytime we save a record it is an asynch operation. So we do not want to call done until we until we know that we have successfully saved a user. We need to use another .then statement to run the CB function.
+14. __Passport Callbacks__ After we create our user we have to inform passport that we are done creating our database record so that it can continue its auth process. we do this with the ".done" method. if you notice the 4th argument in the passport CB function is done. This tells passport we are finished and that it can resume. We have to call this function. In order to call it we have to call it with 2 arguments. In the case were we find a user in the database calling this function is simple. We feed it the two arguments and thats it.first one is null an error object, second is user record (existingUser).  In the case where we have to create a user, we need to take extra steps. Remember anytime we save a record it is an async operation. So we do not want to call done until we until we know that we have successfully saved a user. We need to use another .then statement to run the CB function.
 
 15. __Encoding Users__ We are going to generate some identifier and pass it to the user in a **cookie** that will be provided in any follow up request to our server. In our browser someone logs in and goes through oAuth and comes back to server with a google profile. The server then runs the googleStrategy CB function that we just finished and process the profile that we just got from the user/ google. Lets say we have a record of an existing user. Server says okay you match and i now need to give you a token that is going to identify you on any followup requests. We generate this token by defining a function called serializeUser. It will be automatically called by passport with our User model. We are gonna use that model to generate that identifier and pass it to passport. Passport will automatically stuff that token into the users cookie for us. Once the user makes a follow up request from the browser back to our server, when they do the cookie will be automatically added to the request by the browser. We are going to take that identifier from the cookie and pass to a second funciton that we will define called deserializeUser, that will take that info and turn it back to a user model. This is what keeps our user logged in and allows us to continue to satisfy their requests.
 
@@ -295,3 +295,6 @@ inside of index.js import App from ./components/app and render app to the root e
 go ahead and fire up with npm run dev. We notice that we get an error message that is emitted from the client. IT is related to the npm version. If you see this error, kill the running server. delete the package-lock-json in the client directory and restart the server. It works!
 
 ###Redux review and setup
+When we run npm run dev we should see both the backend and the front end servers startup.
+
+As of now we have our index.js and ./components/app.js files that we are working with. index will be where we handle a lot of our redux and
