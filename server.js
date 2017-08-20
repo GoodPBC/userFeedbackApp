@@ -29,8 +29,9 @@ app.use(
 app.use(passport.initialize());
 app.use(passport.session());
 
-//require auth routes as function and call function on (app)
+//require routes as function and call function on (app)
 require('./routes/auth')(app);
+require('./routes/api')(app);
 
 //In production run on env var port || or run on port 5000
 const PORT = process.env.PORT || 5000;
