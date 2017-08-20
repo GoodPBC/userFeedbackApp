@@ -37,6 +37,8 @@ passport.use(
     },
     //this gets executed after the callback. Save access token to DB, it is our key to each user.
     async (accessToken, refreshToken, profile, done) => {
+      console.log(profile);
+
       //we search for a user with a googleId that is equal to profile.id
       const existingUser = await User.findOne({ googleId: profile.id });
 
@@ -45,7 +47,14 @@ passport.use(
         return done(null, existingUser);
       }
       //if a record doesnt exist, create one
-      const user = await new User({ googleId: profile.id }).save();
+      const user = await new User({
+        googleId: profile.id,
+        displayName: profile.displayName,
+        name: {
+          first: profile.name.givenName,
+          last: profile.name.familyName
+        }
+      }).save();
       done(null, user);
     }
   )
@@ -59,13 +68,27 @@ passport.use(
       clientSecret: keys.INSTAGRAM_CLIENT_SECRET,
       callbackURL: 'http://localhost:5000/auth/instagram/callback'
     },
-    (accessToken, refreshToken, profile, done) => {
-      console.log('access token', accessToken);
-      console.log('refresh token', refreshToken);
-      console.log('Display Name', profile);
-      // User.findOrCreate({ instagramId: profile.id }, function(err, user) {
-      //   return done(err, user);
-      // });
+    //this gets executed after the callback. Save access token to DB, it is our key to each user.
+    async (accessToken, refreshToken, profile, done) => {
+      console.log(profile);
+
+      //we search for a user with a googleId that is equal to profile.id
+      const existingUser = await User.findOne({ instagramId: profile.id });
+
+      //if a record exists do nothing
+      if (existingUser) {
+        return done(null, existingUser);
+      }
+      //if a record doesnt exist, create one
+      const user = await new User({
+        instagramId: profile.id,
+        displayName: profile.displayName,
+        name: {
+          first: profile.name.givenName,
+          last: profile.name.familyName
+        }
+      }).save();
+      done(null, user);
     }
   )
 );
