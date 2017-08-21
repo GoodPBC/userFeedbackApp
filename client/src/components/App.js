@@ -12,6 +12,8 @@ const Analytics = () => <h2>Analytics</h2>;
 const Settings = () => <h2>Settings</h2>;
 
 class App extends Component {
+  componentDidMount() {}
+
   render() {
     return (
       <div className>
