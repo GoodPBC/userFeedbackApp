@@ -20,4 +20,8 @@ class Header extends Component {
   }
 }
 
-export default Header;
+function mapStateToProps(state) {
+  return {};
+}
+
+export default conenct()(Header);
