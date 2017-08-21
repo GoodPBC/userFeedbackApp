@@ -29,12 +29,7 @@ module.exports = app => {
 
   //IG
   //ig auth route
-  app.get(
-    '/auth/instagram',
-    passport.authenticate('instagram', {
-      scope: ['profile', 'email']
-    })
-  );
+  app.get('/auth/instagram', passport.authenticate('instagram'));
 
   app.get(
     '/auth/instagram/callback',
