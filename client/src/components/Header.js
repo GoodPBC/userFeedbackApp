@@ -24,4 +24,4 @@ function mapStateToProps(state) {
   return {};
 }
 
-export default conenct()(Header);
+export default connect()(Header);
