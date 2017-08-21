@@ -2,11 +2,10 @@
 import React, { Component } from 'react';
 import { BrowserRouter, Route } from 'react-router-dom';
 import { connect } from 'react-redux';
-//import all action creators from inde
+//import all action creators from index.js and assign to actions object
 import * as actions from '../actions';
 
 import Header from './Header';
-
 const Landing = () => <h2>Landing</h2>;
 const Dashboard = () => <h2>Dashboard</h2>;
 const CreateLoor = () => <h2>Create Loor</h2>;
