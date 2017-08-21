@@ -13,7 +13,7 @@ const Settings = () => <h2>Settings</h2>;
 
 const App = () => {
   return (
-    <div className="container">
+    <div className>
       <BrowserRouter>
         <div>
           <Header />
