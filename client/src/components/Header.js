@@ -4,7 +4,7 @@ class Header extends Component {
   render() {
     return (
       <nav className="yellow darken-3">
-        <div className="nav-Wrapper">
+        <div className="nav-Wrapper  container">
           <a className="left brand-logo" href="/">
             Loor
           </a>
