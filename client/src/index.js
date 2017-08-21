@@ -1,5 +1,5 @@
 //this is our main data layer file  //render root component to the dom
-import 'materialize-css/dist/materialize.min.css';
+import 'materialize-css/dist/css/materialize.min.css';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
