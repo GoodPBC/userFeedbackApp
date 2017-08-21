@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 
 class Header extends Component {
   render() {
+    console.log(this.props);
     return (
       <nav className="yellow darken-3">
         <div className="nav-Wrapper  container">
