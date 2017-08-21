@@ -71,6 +71,12 @@ passport.use(
     //this gets executed after the callback. Save access token to DB, it is our key to each user.
     async (accessToken, refreshToken, profile, done) => {
       console.log(profile);
+      console.log('====================================================');
+      console.log(profile._json.data.id);
+      console.log(profile._json.data.full_name);
+      console.log(profile._json.data.website);
+      console.log(profile._json.data.is_business);
+      console.log(profile._json.data.profile_picture);
 
       //we search for a user with a googleId that is equal to profile.id
       const existingUser = await User.findOne({ instagramId: profile.id });
@@ -81,7 +87,7 @@ passport.use(
       }
       //if a record doesnt exist, create one
       const user = await new User({
-        instagramId: profile.id,
+        instagramId: profile._json.data.id,
         displayName: profile.displayName,
         name: {
           first: profile.name.givenName,
