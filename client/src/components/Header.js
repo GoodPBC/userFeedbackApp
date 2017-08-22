@@ -8,7 +8,7 @@ class Header extends Component {
         return 'Not Done Yet';
 
       case false:
-        return {'You are Not logged in'};
+        return 'You are Not logged in';
 
       default:
         return "Hello User Da' Loser";
