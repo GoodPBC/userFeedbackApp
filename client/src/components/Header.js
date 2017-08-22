@@ -1,9 +1,22 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
+import { connect } from 'react-redux'; //import connect helper
 
 class Header extends Component {
+  renderContentHelper() {
+    switch (this.props.auth) {
+      case null:
+        return 'Not Done Yet';
+
+      case false:
+        return {'You are Not logged in'};
+
+      default:
+        return "Hello User Da' Loser";
+    }
+  }
+
   render() {
-    console.log(this.props);
+    console.log(this.props.auth);
     return (
       <nav className="yellow darken-3">
         <div className="nav-Wrapper  container">
@@ -11,9 +24,7 @@ class Header extends Component {
             Loor
           </a>
           <ul className="right">
-            <li>
-              <a className="black-text">Login with instagram</a>
-            </li>
+            {this.renderContentHelper()}
           </ul>
         </div>
       </nav>
