@@ -33,7 +33,10 @@ class Header extends Component {
     return (
       <nav className="yellow darken-3">
         <div className="nav-Wrapper  container">
-          <Link className="left brand-logo" href="/">
+          <Link
+						to={}
+						className="left brand-logo" href="/"
+					>
             Loor
           </Link>
           <ul className="right">
