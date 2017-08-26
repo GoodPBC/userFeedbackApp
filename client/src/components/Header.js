@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'; //import connect helper
+import { Link } from 'react-router-dom';
 
 class Header extends Component {
   renderContentHelper() {
