@@ -4,9 +4,13 @@ const Footer = () => {
   return (
     <footer className="footer page-footer yellow darken-3">
       <div className="container">
-        <div className="loor-llc"> 2016 All Rights Reserved. LOOR LLC </div>
+        <div className="loor-llc left-align black-text">
+          {' '}2016 All Rights Reserved. LOOR LLC{' '}
+        </div>
         <div className="footer-links">
-          <div className="link-item">info@loor.life</div>
+          <div className="link-item right-align black-text flow-text">
+            info@loor.life
+          </div>
         </div>
         <div className="footer-social-networks">
           <i

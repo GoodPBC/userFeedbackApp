@@ -10,14 +10,18 @@ class Header extends Component {
       case false:
         return (
           <li>
-            <a href="/auth/instagram">Instagram Login</a>
+            <a href="/auth/instagram" className="hoverable">
+              <span className="black-text ">Instagram Login</span>
+            </a>
           </li>
         );
 
       default:
         return (
           <li>
-            <a href="/api/logout">Log out</a>
+            <a href="/api/logout" className="hoverable">
+              Log out
+            </a>
           </li>
         );
     }

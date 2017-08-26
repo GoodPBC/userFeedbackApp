@@ -3,9 +3,11 @@ import React from 'react';
 const Landing = () => {
   //we double bracket inline style in react
   return (
-    <div style={{ textAlign: 'center' }}>
+    <div className="center-align">
       <h1>Loor</h1>
-      We Dont Believe in product placement, We believe in People Placement!
+      <p className="flow-text yellow-text yellow-darken-3">
+        We Dont Believe in product placement, We believe in People Placement!
+      </p>
     </div>
   );
 };
