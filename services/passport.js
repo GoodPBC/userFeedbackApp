@@ -3,7 +3,7 @@ const passport = require('passport');
 //Google Passport Strategy
 const GoogleStrategy = require('passport-google-oauth20').Strategy;
 //Instagram Passport Strategy
-const InstagramStrategy = require('passport-instagram');
+const InstagramStrategy = require('passport-instagram').Strategy;
 //require mongoose
 const mongoose = require('mongoose');
 //google keys
@@ -33,7 +33,7 @@ passport.use(
     {
       clientID: keys.googleClientID, // keys
       clientSecret: keys.googleClientSecret, //secret key
-      callbackURL: 'http://localhost:5000/auth/google/callback' //callback URL
+      callbackURL: '/auth/google/callback' //callback URL
     },
     //this gets executed after the callback. Save access token to DB, it is our key to each user.
     async (accessToken, refreshToken, profile, done) => {
@@ -66,7 +66,7 @@ passport.use(
     {
       clientID: keys.INSTAGRAM_CLIENT_ID,
       clientSecret: keys.INSTAGRAM_CLIENT_SECRET,
-      callbackURL: 'http://localhost:5000/auth/instagram/callback'
+      callbackURL: '/auth/instagram/callback'
     },
     //this gets executed after the callback. Save access token to DB, it is our key to each user.
     async (accessToken, refreshToken, profile, done) => {
