@@ -298,3 +298,6 @@ go ahead and fire up with npm run dev. We notice that we get an error message th
 When we run npm run dev we should see both the backend and the front end servers startup.
 
 As of now we have our index.js and ./components/app.js files that we are working with. index will be where we handle a lot of our redux and
+
+##Additional Proxy Rules
+We are going to use our current user API route to determine whether we have a logged in user or not. We need to make an AJAX request to our back end. First we will install Axios and Redux Thunk. Next we create a folder called actions
