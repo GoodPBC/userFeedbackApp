@@ -31,7 +31,6 @@ app.use(passport.session());
 
 //require routes as function and call function on (app)
 require('./routes/auth')(app);
-require('./routes/api')(app);
 
 //In production run on env var port || or run on port 5000
 const PORT = process.env.PORT || 5000;
