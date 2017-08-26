@@ -5,7 +5,7 @@ class Header extends Component {
   renderContentHelper() {
     switch (this.props.auth) {
       case null:
-        return 'Not Done Yet';
+        return;
 
       case false:
         return 'You are Not logged in';
