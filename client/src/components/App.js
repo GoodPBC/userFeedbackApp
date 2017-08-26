@@ -7,6 +7,7 @@ import * as actions from '../actions';
 
 import Header from './Header';
 import Landing from './Landing';
+import Footer from './Footer';
 const Dashboard = () => <h2>Dashboard</h2>;
 const CreateLoor = () => <h2>Create Loor</h2>;
 const ViewLoor = () => <h2>View Loor</h2>;
@@ -27,6 +28,7 @@ class App extends Component {
             <Route path="/" exact component={Landing} />
             <Route path="/dashboard" exact component={Dashboard} />
             <Route path="/loor/create" component={CreateLoor} />
+            <Footer />
           </div>
         </BrowserRouter>
       </div>
