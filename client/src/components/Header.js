@@ -34,9 +34,9 @@ class Header extends Component {
       <nav className="yellow darken-3">
         <div className="nav-Wrapper  container">
           <Link
-						to={}
-						className="left brand-logo" href="/"
-					>
+            to={this.props.auth ? '/dashboard' : '/'}
+            className="left brand-logo"
+          >
             Loor
           </Link>
           <ul className="right">
