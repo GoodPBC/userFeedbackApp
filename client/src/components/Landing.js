@@ -1,6 +1,7 @@
 import React from 'react';
 
 const Landing = () => {
+  //we double bracket inline style in react
   return (
     <div style={{ textAlign: 'center' }}>
       <h1>Loor</h1>
