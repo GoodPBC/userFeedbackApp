@@ -8,10 +8,18 @@ class Header extends Component {
         return;
 
       case false:
-        return 'You are Not logged in';
+        return (
+          <li>
+            <a href="/auth/instagram">Instagram Login</a>
+          </li>
+        );
 
       default:
-        return "Hello User Da' Loser";
+        return (
+          <li>
+            <a>Log out</a>
+          </li>
+        );
     }
   }
 
