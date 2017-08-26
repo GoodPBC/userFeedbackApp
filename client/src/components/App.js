@@ -6,7 +6,7 @@ import { connect } from 'react-redux';
 import * as actions from '../actions';
 
 import Header from './Header';
-const Landing = () => <h2>Landing</h2>;
+import Landing from './Landing';
 const Dashboard = () => <h2>Dashboard</h2>;
 const CreateLoor = () => <h2>Create Loor</h2>;
 const ViewLoor = () => <h2>View Loor</h2>;
