@@ -8,27 +8,25 @@ class Header extends Component {
     switch (this.props.auth) {
       case null:
         return;
-
       case false:
-        return [
-          <li>
-            <Payments />
-          </li>,
+        return (
           <li>
             <a href="/auth/instagram" className="hoverable">
               <span className="black-text ">Instagram Login</span>
             </a>
           </li>
-        ];
-
+        );
       default:
-        return (
-          <li>
+        return [
+          <li key="1">
+            <Payments />
+          </li>,
+          <li key="2">
             <a href="/api/logout" className="hoverable">
               Log out
             </a>
           </li>
-        );
+        ];
     }
   }
 
