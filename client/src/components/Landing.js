@@ -5,7 +5,7 @@ const Landing = () => {
   return (
     <div className="center-align">
       <h1>Loor</h1>
-      <p className="flow-text yellow-text yellow-darken-3">
+      <p className="flow-text yellow-text text-darken-3">
         We Dont Believe in product placement, We believe in People Placement!
       </p>
     </div>
