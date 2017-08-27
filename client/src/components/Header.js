@@ -12,7 +12,7 @@ class Header extends Component {
         return (
           <li>
             <a href="/auth/instagram" className="hoverable">
-              <span className="black-text ">Instagram Login</span>
+              <span className="yellow-text text-darken-3">Instagram Login</span>
             </a>
           </li>
         );
@@ -33,13 +33,17 @@ class Header extends Component {
   render() {
     console.log(this.props.auth);
     return (
-      <nav className="yellow darken-3">
+      <nav className="grey darken-4">
         <div className="nav-Wrapper  container">
           <Link
             to={this.props.auth ? '/dashboard' : '/'}
             className="left brand-logo"
           >
-            Loor
+            <img
+              style={{ padding: 5 }}
+              src={require(`../assets/logo-trans.png`)}
+              alt="Loor Logo"
+            />
           </Link>
           <ul className="right">
             {this.renderContentHelper()}
