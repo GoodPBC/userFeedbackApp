@@ -3,8 +3,6 @@ import ReactStripeCheckout from 'react-stripe-checkout';
 
 class Payments extends Component {
   render() {
-    debugger;
-
     return (
       <ReactStripeCheckout
         amount={100}
