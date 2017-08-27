@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'; //import connect helper
 import { Link } from 'react-router-dom';
+import Payments from './Payments';
 
 class Header extends Component {
   renderContentHelper() {
@@ -9,13 +10,16 @@ class Header extends Component {
         return;
 
       case false:
-        return (
+        return [
+          <li>
+            <Payments />
+          </li>,
           <li>
             <a href="/auth/instagram" className="hoverable">
               <span className="black-text ">Instagram Login</span>
             </a>
           </li>
-        );
+        ];
 
       default:
         return (
