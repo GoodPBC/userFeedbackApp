@@ -12,13 +12,13 @@ class Header extends Component {
         return (
           <li>
             <a href="/auth/instagram" className="hoverable">
-              <span className="black-text ">Instagram Login</span>
+              <span className="orange-text ">Instagram Login</span>
             </a>
           </li>
         );
       default:
         return [
-          <li key="1">
+          <li key="1" className="grey darken-4">
             <Payments />
           </li>,
           <li key="2">
