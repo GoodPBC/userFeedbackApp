@@ -2,13 +2,13 @@ import React from 'react';
 
 const Footer = () => {
   return (
-    <footer className="footer page-footer yellow darken-3">
+    <footer className="footer page-footer grey darken-4">
       <div className="container">
-        <div className="loor-llc left-align black-text">
+        <div className="loor-llc left-align yellow-text text-darken-3">
           {' '}2016 All Rights Reserved. LOOR LLC{' '}
         </div>
         <div className="footer-links">
-          <div className="link-item right-align black-text flow-text">
+          <div className="link-item right-align yellow-text text-darken-3 flow-text">
             info@loor.life
           </div>
         </div>
