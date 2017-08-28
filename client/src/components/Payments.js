@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import MaterialIcon from 'react-google-material-icons';
 import ReactStripeCheckout from 'react-stripe-checkout';
-
+require('../assets/custom.css');
 class Payments extends Component {
   render() {
     return (
@@ -12,11 +12,13 @@ class Payments extends Component {
         token={token => console.log(token)}
         stripeKey={process.env.REACT_APP_STRIPE_KEY}
       >
-        <button
-          className="btn btn-floating btn-large black"
-          style={{ color: '#ffea00 !important' }}
-        >
-          <MaterialIcon icon="attach_money" size={28} color="#ffea00" />
+        <button className="btn-large stripeButton">
+          <MaterialIcon
+            icon="attach_money"
+            className="paymentIcon"
+            size={28}
+            color="white"
+          />
         </button>
       </ReactStripeCheckout>
     );
