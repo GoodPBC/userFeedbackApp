@@ -1,0 +1,18 @@
+nav ul li:hover {
+  background-color: white;
+}
+
+.stripeButton {
+  color: #212121;
+  background: #212121;
+}
+
+.stripeButton:hover {
+  background: #f9a825;
+}
+.paymentListItem {
+  /*background: "grey darken-4";*/
+}
+.paymentIcon {
+  background-color: #000000 !important;
+}
