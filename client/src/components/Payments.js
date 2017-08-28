@@ -11,9 +11,10 @@ class Payments extends Component {
         name="Loor"
         description="25 Loors for $5.00"
         amount={100}
-        token={token => console.log(token)}
+        token={token => this.props.sendStripeTokenToServer(token)}
         stripeKey={process.env.REACT_APP_STRIPE_KEY}
       >
+        {/* this.props.sendStripeTokenToServer made availabele by action creator*/}
         <button className="btn-large stripeButton">
           <MaterialIcon
             icon="attach_money"
