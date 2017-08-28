@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import MaterialIcon from 'react-google-material-icons';
 import ReactStripeCheckout from 'react-stripe-checkout';
+import { connect } from 'react-redux'; //import connect helper
 require('../assets/custom.css');
 class Payments extends Component {
   render() {
