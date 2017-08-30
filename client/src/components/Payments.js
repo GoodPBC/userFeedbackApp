@@ -11,7 +11,7 @@ class Payments extends Component {
       <ReactStripeCheckout
         name="Loor"
         description="25 Loors for $5.00"
-        amount={100}
+        amount={500}
         token={token => this.props.sendStripeTokenToServer(token)}
         stripeKey={process.env.REACT_APP_STRIPE_KEY}
       >
