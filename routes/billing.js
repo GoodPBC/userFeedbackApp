@@ -8,14 +8,17 @@ module.exports = app => {
     const charge = await stripe.charges.create({
       amount: 500,
       currency: 'usd',
-      description: 'Example charge',
+      description: '25 Loors for $5',
       source: req.body.id
     });
-    console.log(charge.id);
+    //srtipe token
+    // console.log(charge.id);
+
+    console.log(req.user);
   });
 
-  // app.get('/api/stripe', (req, res) => {
-  //   //req.logout();
-  //   res.json(token);
-  // });
+  app.get('/api/stripe', (req, res) => {
+    //req.logout();
+    res.json(token);
+  });
 };
