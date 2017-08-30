@@ -14,8 +14,10 @@ module.exports = app => {
     //srtipe token
     // console.log(charge.id);
 
-    let creditBlalance = (req.user.credits += 5);
+    let creditBlalance = (req.user.credits += 5); //update user credit balance
     console.log(creditBlalance);
+    const user = await req.user.save(); // save updated user
+    res.send(user);
   });
 
   app.get('/api/stripe', (req, res) => {
