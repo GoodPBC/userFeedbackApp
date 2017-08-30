@@ -10,7 +10,6 @@ export const fetchUser = () => async dispatch => {
 };
 //call sendStripeTokenToServer with token from stripe & call async function w/ dispatch method
 export const sendStripeTokenToServer = token => async dispatch => {
-  console.log(token);
   //make post request to backend server to send token
   const res = await axios.post('/api/stripe', token);
 
