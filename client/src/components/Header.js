@@ -31,7 +31,10 @@ class Header extends Component {
   }
 
   render() {
-    console.log(this.props.auth);
+    {
+      /* console.log grabs auth object */
+    }
+    //console.log(this.props.auth);
     return (
       <nav className="grey darken-4">
         <div className="nav-Wrapper  container">
