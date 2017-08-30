@@ -4,7 +4,8 @@ const express = require('express');
 const mongoose = require('mongoose');
 const cookieSession = require('cookie-session');
 const passport = require('passport');
-//require config file
+const bodyParser = require('body-parser');
+//require config keys
 const keys = require('./config/keys');
 
 //require mongoose UserSchema
@@ -18,7 +19,8 @@ mongoose.connect(keys.mongoURI);
 //generate express app
 const app = express();
 
-//
+//express middlewares
+app.use(bodyParser.json());
 app.use(
   cookieSession({
     //formula for days
@@ -29,8 +31,10 @@ app.use(
 app.use(passport.initialize());
 app.use(passport.session());
 
-//require routes as function and call function on (app)
+//require auth routes as function and call function on (app)
 require('./routes/auth')(app);
+//require billing routes as function and call function on (app)
+require('./routes/billing')(app);
 
 //In production run on env var port || or run on port 5000
 const PORT = process.env.PORT || 5000;
