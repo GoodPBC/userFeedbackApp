@@ -14,7 +14,8 @@ module.exports = app => {
     //srtipe token
     // console.log(charge.id);
 
-    console.log(req.user);
+    let creditBlalance = (req.user.credits += 5);
+    console.log(creditBlalance);
   });
 
   app.get('/api/stripe', (req, res) => {
