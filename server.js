@@ -39,7 +39,7 @@ require('./routes/billing')(app);
 //production routing logic
 if (process.env.NODE_ENV === 'production') {
   //express serve production assets
-  app.use(express.static('client/ build'));
+  app.use(express.static('client/build'));
 
   //express serve index.html for unknown routes
   const path = require('path');
