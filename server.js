@@ -36,6 +36,18 @@ require('./routes/auth')(app);
 //require billing routes as function and call function on (app)
 require('./routes/billing')(app);
 
+//production routing logic
+if (process.env.NODE_ENV === 'production') {
+  //express serve production assets
+  app.use(express.static('client/ build'));
+
+  //express serve index.html for unknown routes
+  const path = require('path');
+  app.get('*', (req, res) => {
+    res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
+  });
+}
+
 //In production run on env var port || or run on port 5000
 const PORT = process.env.PORT || 5000;
 //express tells node to listen on a Port

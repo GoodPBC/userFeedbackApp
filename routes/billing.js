@@ -5,6 +5,11 @@ const stripe = require('stripe')(keys.stripeData.stripeSecretKey);
 module.exports = app => {
   app.post('/api/stripe', async (req, res) => {
     // console.log(req.body);
+
+    if (!req.user) {
+      return res.status(401).send({ error: 'You must login' });
+    }
+
     const charge = await stripe.charges.create({
       amount: 500,
       currency: 'usd',
