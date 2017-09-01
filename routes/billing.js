@@ -1,6 +1,6 @@
 //import keys and stripe library
 const keys = require('../config/keys');
-const stripe = require('stripe')(keys.stripeData.stripeSecretKey);
+const stripe = require('stripe')(stripeData.stripeSecretKey);
 
 module.exports = app => {
   app.post('/api/stripe', async (req, res) => {
