@@ -4,6 +4,8 @@ const passport = require('passport');
 const GoogleStrategy = require('passport-google-oauth20').Strategy;
 //Instagram Passport Strategy
 const InstagramStrategy = require('passport-instagram');
+//passport IG token auth
+const InstagramTokenStrategy = require('passport-instagram-token');
 //require mongoose
 const mongoose = require('mongoose');
 //google keys
@@ -80,6 +82,22 @@ passport.use(
         }
       }).save();
       done(null, user);
+    }
+  )
+);
+
+//IG token auth - passport
+passport.use(
+  new InstagramTokenStrategy(
+    {
+      clientID: INSTAGRAM_CLIENT_ID,
+      clientSecret: INSTAGRAM_CLIENT_SECRET,
+      passReqToCallback: true
+    },
+    function(req, accessToken, refreshToken, profile, next) {
+      User.findOrCreate({ 'instagram.id': profile.id }, function(error, user) {
+        return next(error, user);
+      });
     }
   )
 );
