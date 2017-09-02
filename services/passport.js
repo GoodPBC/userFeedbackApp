@@ -51,7 +51,8 @@ passport.use(
     {
       clientID: keys.INSTAGRAM_CLIENT_ID,
       clientSecret: keys.INSTAGRAM_CLIENT_SECRET,
-      callbackURL: '/auth/instagram/callback'
+      callbackURL:
+        'https://desolate-peak-62828.herokuapp.com/auth/instagram/callback'
     },
     //this gets executed after the callback. Save access token to DB, it is our key to each user.
     async (accessToken, refreshToken, profile, done) => {
