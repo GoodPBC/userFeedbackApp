@@ -1,9 +1,7 @@
 //require mongoose
 const mongoose = require('mongoose');
-//import the schema property from the mongoose object
-const Schema = mongoose.Schema;
+const { Schema } = mongoose;
 
-//create new user schema
 const userSchema = new Schema({
   googleId: String,
   instagramId: String,
@@ -15,4 +13,4 @@ const userSchema = new Schema({
   credits: { type: Number, default: 0 }
 });
 
-mongoose.model('User', userSchema);
+mongoose.model('users', userSchema);
