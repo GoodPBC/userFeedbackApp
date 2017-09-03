@@ -1,11 +1,9 @@
-//import express
+//require statements
 const express = require('express');
-//require mongoose
 const mongoose = require('mongoose');
 const cookieSession = require('cookie-session');
 const passport = require('passport');
 const bodyParser = require('body-parser');
-//require config keys
 const keys = require('./config/keys');
 
 //require mongoose UserSchema
@@ -14,6 +12,7 @@ require('./models/User');
 require('./services/passport');
 
 //mongo connection
+mongoose.Promise = global.Promise;
 mongoose.connect(keys.mongoURI);
 
 //generate express app
@@ -31,9 +30,8 @@ app.use(
 app.use(passport.initialize());
 app.use(passport.session());
 
-//require auth routes as function and call function on (app)
+//require all routes as functions and call function on (app)
 require('./routes/auth')(app);
-//require billing routes as function and call function on (app)
 require('./routes/billing')(app);
 
 //production routing logic
